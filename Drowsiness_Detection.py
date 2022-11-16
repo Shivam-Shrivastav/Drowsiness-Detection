@@ -52,14 +52,14 @@ while True: # Initializing while loop
 			flag += 1
 			if flag >= frame_check: # if eye aspect ration remains lesser than threshold value for the consecutive 20 frames an alarm will blow and will give the alert. 
 				if frame_check <= flag < frame_check + 1 :
-					sound.play()
+					sound.play() # alert sound start blowing
 				cv2.putText(frame, "****************ALERT!****************", (10, 30),
 					cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2) # Displaying Alert 
 				cv2.putText(frame, "****************ALERT!****************", (10,325),
 					cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2) # Displaying Alert 
 		else:
-			flag = 0 # if eye aspect ration remains greater thean threshold, nothing will happen
-			sound.stop()
+			flag = 0 # if eye aspect ration remains greater thean threshold, nothing will happen or if aspect ration gets greater than threshold
+			sound.stop() # alert sound stops
 	cv2.imshow("Frame", frame) # showing the web camera capturings
 	key = cv2.waitKey(1) & 0xFF
 	if key == ord("q"): # press q to quit
